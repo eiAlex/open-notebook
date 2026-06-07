@@ -1,0 +1,22 @@
+-- Migration 15: MCP Server configuration
+-- Stores Model Context Protocol server definitions for use in chat workflows
+
+DEFINE TABLE IF NOT EXISTS mcp_server SCHEMAFULL;
+
+DEFINE FIELD IF NOT EXISTS name ON TABLE mcp_server TYPE string;
+DEFINE FIELD IF NOT EXISTS description ON TABLE mcp_server TYPE option<string>;
+DEFINE FIELD IF NOT EXISTS enabled ON TABLE mcp_server TYPE bool DEFAULT true;
+
+-- Transport type: stdio | sse | streamable_http
+DEFINE FIELD IF NOT EXISTS transport ON TABLE mcp_server TYPE string DEFAULT 'stdio';
+
+-- For stdio transport
+DEFINE FIELD IF NOT EXISTS command ON TABLE mcp_server TYPE option<string>;
+DEFINE FIELD IF NOT EXISTS args ON TABLE mcp_server TYPE option<array<string>>;
+DEFINE FIELD IF NOT EXISTS env ON TABLE mcp_server TYPE option<object>;
+
+-- For sse / streamable_http transport
+DEFINE FIELD IF NOT EXISTS url ON TABLE mcp_server TYPE option<string>;
+
+DEFINE FIELD IF NOT EXISTS created ON TABLE mcp_server TYPE option<datetime>;
+DEFINE FIELD IF NOT EXISTS updated ON TABLE mcp_server TYPE option<datetime>;

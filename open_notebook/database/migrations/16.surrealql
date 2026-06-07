@@ -1,0 +1,4 @@
+-- Migration 16: Add headers field to mcp_server
+-- Allows passing HTTP headers (e.g. Authorization) for SSE / streamable_http transports
+
+DEFINE FIELD IF NOT EXISTS headers ON TABLE mcp_server TYPE option<object>;

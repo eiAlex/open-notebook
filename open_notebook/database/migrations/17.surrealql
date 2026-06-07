@@ -1,0 +1,12 @@
+-- Migration 17: Per-notebook MCP server activation
+-- Stores which MCP servers are enabled for each notebook (overrides global enabled flag)
+
+DEFINE TABLE IF NOT EXISTS notebook_mcp SCHEMAFULL;
+
+DEFINE FIELD IF NOT EXISTS notebook_id ON TABLE notebook_mcp TYPE string;
+DEFINE FIELD IF NOT EXISTS mcp_server_id ON TABLE notebook_mcp TYPE string;
+DEFINE FIELD IF NOT EXISTS enabled ON TABLE notebook_mcp TYPE bool DEFAULT true;
+DEFINE FIELD IF NOT EXISTS created ON TABLE notebook_mcp TYPE option<datetime>;
+DEFINE FIELD IF NOT EXISTS updated ON TABLE notebook_mcp TYPE option<datetime>;
+
+DEFINE INDEX IF NOT EXISTS notebook_mcp_unique ON TABLE notebook_mcp COLUMNS notebook_id, mcp_server_id UNIQUE;

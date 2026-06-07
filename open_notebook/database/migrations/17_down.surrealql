@@ -1,0 +1,2 @@
+-- Migration 17 rollback: remove notebook_mcp table
+REMOVE TABLE IF EXISTS notebook_mcp;

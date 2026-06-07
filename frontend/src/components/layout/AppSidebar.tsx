@@ -32,6 +32,7 @@ import {
   Search,
   Mic,
   Bot,
+  Plug,
   Shuffle,
   Settings,
   LogOut,
@@ -67,6 +68,7 @@ const getNavigation = (t: TFunction) => [
     title: t('navigation.manage'),
     items: [
       { name: t('navigation.models'), href: '/settings/api-keys', icon: Bot },
+      { name: t('navigation.mcpServers'), href: '/settings/mcp-servers', icon: Plug },
       { name: t('navigation.transformations'), href: '/transformations', icon: Shuffle },
       { name: t('navigation.settings'), href: '/settings', icon: Settings },
       { name: t('navigation.advanced'), href: '/advanced', icon: Wrench },

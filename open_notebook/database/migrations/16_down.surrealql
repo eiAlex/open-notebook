@@ -1,0 +1,2 @@
+-- Migration 16 rollback: remove headers field from mcp_server
+REMOVE FIELD IF EXISTS headers ON TABLE mcp_server;

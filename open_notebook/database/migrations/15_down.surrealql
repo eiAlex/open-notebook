@@ -1,0 +1,2 @@
+-- Migration 15 rollback: remove MCP server table
+REMOVE TABLE IF EXISTS mcp_server;
